@@ -18,7 +18,7 @@ today = date.today()
 age = (today.year - opend_time.year
        - ((today.month, today.day) < (opend_time.month, opend_time.day))
        )
-INCLINED = incline(age)
+inclined = incline(age)
 load_wines = pandas.read_excel(
     'wine3.xlsx',
     na_values=['N/A', 'NA'],
@@ -29,7 +29,7 @@ for wine in load_wines:
 
 rendered_page = template.render(
     text1="Проверенно временем",
-    text2=f"Уже {age} {INCLINED} с Вами",
+    text2=f"Уже {age} {inclined} с Вами",
     wines=wines
     )
 
