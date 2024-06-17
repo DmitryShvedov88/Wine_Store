@@ -28,8 +28,8 @@ for wine in load_wines:
     wines[wine["Категория"]].append(wine)
 
 rendered_page = template.render(
-    text1="Проверенно временем",
-    text2=f"Уже {age} {inclined} с Вами",
+    top_heading="Проверенно временем",
+    bottom_header=f"Уже {age} {inclined} с Вами",
     wines=wines
     )
 
