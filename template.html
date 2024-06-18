@@ -1,4 +1,3 @@
-#это вёрстка сайта
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -36,7 +35,7 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-
+  </div>
 
     
     <div class="header-top">
@@ -117,17 +116,17 @@
           {% for wine in wines %}
           <div class="col-lg-4 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4 pt-5">
-              <img src="images/{{wine.Картинка}}" alt="Image" class="img-fluid">
-              <div>
-                <h3 class="heading mt-3 mb-3 text-dark">{{wine.Название}}</h3>
-                {% if wine.Акция %}
-                  <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
-                {% endif %}
-                <p>              
+              <img src="images/{{ wine.Картинка }}" alt="Image" class="img-fluid">
+              {%  if wine.Акция %}
+                <img src="assets/profitable.png"
+                    style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;" alt="Image">
+              {% endif %}
+              <div>          
                   {% if wine.Сорт %}
-                    Сорт винограда - {{wine.Сорт}}<br/>
+                  <p>Сорт винограда - {{wine.Сорт}}
                   {% endif %}
-                    <span class="price">{{wine.Цена}} р.</span>
+                  <p>
+                  <span class="price">{{wine.Цена}} р.</span>
                 </p>
               </div>
             </div>
