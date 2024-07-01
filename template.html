@@ -110,9 +110,10 @@
           </div>
         </div>
         <div class="row">
-        {% for class, wines in wines.items() %}
-        <div class="col-12 section-title text-center mb-5">
-          <h2 class="d-block">{{class}}</h2>
+          {% for class, wines in wines.items() %}
+            <div class="col-12 section-title text-center mb-5">
+              <h2 class="d-block">{{class}}</h2>
+          </div>
           {% for wine in wines %}
           <div class="col-lg-4 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4 pt-5">
@@ -132,7 +133,6 @@
             </div>
           </div>
           {% endfor %}
-        </div>
         {% endfor %}
       </div>
     </div>

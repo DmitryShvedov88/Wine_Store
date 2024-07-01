@@ -6,7 +6,7 @@ import collections
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 import argparse
 import pandas
-from Wine_Store.decline_noun import decline_noun
+from decliner import decline_noun
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
