@@ -6,7 +6,7 @@ import collections
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 import argparse
 import pandas
-from incline_numerals import incline
+from Wine_Store.inflecte_noun import inflecte_noun
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
@@ -60,10 +60,10 @@ if __name__ == "__main__":
     file_path = get_path()
     wines = get_products(file_path)
     age = count_age()
-    inclined = incline(age)
+    year = inflecte_noun(age)
     rendered_page = template.render(
         top_heading="Проверенно временем",
-        bottom_header=f"Уже {age} {inclined} с Вами",
+        bottom_header=f"Уже {age} {year} с Вами",
         wines=wines
         )
 
