@@ -6,7 +6,7 @@ import collections
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 import argparse
 import pandas
-from Wine_Store.inflecte_noun import inflecte_noun
+from Wine_Store.decline_noun import decline_noun
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
@@ -26,9 +26,9 @@ def get_path():
 
 
 def get_products(file_path):
-    df_wines = load_wines(file_path)
+    wine_df = load_wines(file_path)
     wines = collections.defaultdict(list)
-    for wine in df_wines:
+    for wine in wine_df:
         wines[wine["Категория"]].append(wine)
     return wines
 
@@ -60,7 +60,7 @@ if __name__ == "__main__":
     file_path = get_path()
     wines = get_products(file_path)
     age = count_age()
-    year = inflecte_noun(age)
+    year = decline_noun(age)
     rendered_page = template.render(
         top_heading="Проверенно временем",
         bottom_header=f"Уже {age} {year} с Вами",

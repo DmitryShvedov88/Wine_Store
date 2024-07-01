@@ -1,5 +1,5 @@
 # library for declension of nouns next to numerals
-def inflecte_noun(age) -> str:
+def decline_noun(age) -> str:
     """Function for noun declension"""
     if age % 100 >= 11 and age % 100 <= 14:
         inflecte = "лет"
