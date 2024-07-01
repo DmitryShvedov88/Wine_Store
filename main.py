@@ -7,11 +7,10 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 import argparse
 import pandas
 from incline_numerals import incline
-from dotenv import load_dotenv
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
-def get_path(wines_path):
+def get_path():
     parser = argparse.ArgumentParser(
         description='Программа позволяет разворачивать сайт по продаже винного магазина, с перечнем товаров из Эксель файла'
         )
@@ -19,7 +18,7 @@ def get_path(wines_path):
         '--product_path',
         help='Введите --product_path путь к файлу',
         type=str,
-        default=wines_path
+        default='wine3.xlsx'
         )
     product_range = parser.parse_args()
     products = product_range.product_path
@@ -53,14 +52,12 @@ def count_age():
 
 
 if __name__ == "__main__":
-    load_dotenv()
     env = Environment(
         loader=FileSystemLoader('.'),
         autoescape=select_autoescape(['html', 'xml'])
     )
     template = env.get_template('template.html')
-    wines_path = os.getenv('FILE')
-    file_path = get_path(wines_path)
+    file_path = get_path()
     wines = get_products(file_path)
     age = count_age()
     inclined = incline(age)
